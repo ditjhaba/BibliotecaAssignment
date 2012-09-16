@@ -24,4 +24,9 @@ public class BibliotecaTest {
         Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()));
         assertTrue(biblioteca.menuOptions() > 0);
     }
+
+    @Test
+    public void testSelectMenuOption(){
+        Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()));
+    }
 }
