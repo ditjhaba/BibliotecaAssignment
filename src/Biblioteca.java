@@ -22,6 +22,7 @@ public class Biblioteca {
     private void run() {
         printMessage();
         menuOptions();
+        viewBooks();
         printThankYouMessage();
     }
 
@@ -74,7 +75,7 @@ public class Biblioteca {
         out.println("ISBN \t\t| Book \t\t| Author");
 
         while (itr.hasNext())
-            out.println(itr.next().getClass());
+            out.println(itr.next());
 
         return true;
     }
