@@ -35,6 +35,10 @@ public class Biblioteca {
         out.println("Thank You! Enjoy the book.");
     }
 
+    private void printReservedBookMessage() {
+        out.println("Sorry we don't have that book yet.");
+    }
+
     public int menuOptions(){
         menu = new Menu();
 
@@ -85,9 +89,13 @@ public class Biblioteca {
     }
 
     public boolean reserveBook(Book book){
-        book.setReserved(true);
-        return true;
+        if(book.getReserved() == false){
+            book.setReserved(true);
+            return true;
+        }
+        else{
+            printReservedBookMessage();
+            return false;
+        }
     }
-
-
 }

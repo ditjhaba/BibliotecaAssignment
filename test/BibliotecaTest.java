@@ -8,6 +8,7 @@ import java.io.PrintStream;
 import java.io.StringWriter;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class BibliotecaTest {
@@ -24,6 +25,13 @@ public class BibliotecaTest {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         new Biblioteca(new PrintStream(os)).printThankYouMessage();
         assertEquals("Thank You! Enjoy the book." + System.getProperty("line.separator"), os.toString());
+    }
+
+    @Test
+    public void testPrintReservedBookMessage(){
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        new Biblioteca(new PrintStream(os)).printThankYouMessage();
+        assertEquals("Sorry we don't have that book yet." + System.getProperty("line.separator"), os.toString());
     }
 
     @Test
@@ -59,6 +67,14 @@ public class BibliotecaTest {
 
     @Test
     public void testBookReserved(){
+        Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()));
 
+        Book book = new Book();
+        book.setISBN(1);
+        book.setAuthor("Ditjhaba");
+        book.setBookName("TWU TDD");
+        book.setReserved(true);
+
+        assertFalse(biblioteca.reserveBook(book));
     }
 }
