@@ -24,7 +24,20 @@ public class Biblioteca {
         printMessage();
         menuOptions();
         viewBooks();
-        printThankYouMessage();
+
+        Book book = new Book();
+        book.setISBN(1);
+        book.setAuthor("Ditjhaba");
+        book.setBookName("TWU TDD");
+        book.setReserved(true);
+        reserveBook(book);
+
+        Book book1 = new Book();
+        book1.setISBN(2);
+        book1.setAuthor("Jules");
+        book1.setBookName("Agile");
+        book1.setReserved(false);
+        reserveBook(book1);
     }
 
     public void printMessage() {
@@ -91,6 +104,7 @@ public class Biblioteca {
     public boolean reserveBook(Book book){
         if(book.getReserved() == false){
             book.setReserved(true);
+            printThankYouMessage();
             return true;
         }
         else{
