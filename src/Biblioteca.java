@@ -2,6 +2,7 @@ import java.awt.*;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.ListIterator;
 
 public class Biblioteca {
 
@@ -70,13 +71,13 @@ public class Biblioteca {
         bookList.add(book);
         bookList.add(book1);
 
-        Iterator itr = bookList.iterator();
+        ListIterator itr = bookList.listIterator();
 
         out.println("ISBN \t\t| Book \t\t| Author");
 
-        for(int i = 0; i < bookList.size(); i++) {
-            out.println();
-        }
+        for(int i = 0; i < bookList.size(); i++)
+            out.println(bookList.get(i).getISBN() + "\t\t\t" + bookList.get(i).getBookName() + "\t\t\t" + bookList.get(i).getAuthor());
+
         return true;
     }
 }
