@@ -24,4 +24,12 @@ public class Book {
     public void setAuthor(String author){
         this.author = author;
     }
+
+    private boolean isBooked;
+    public boolean getIsBooked(){
+        return isBooked;
+    }
+    public void setAuthor(boolean isBooked){
+        this.isBooked = isBooked;
+    }
 }
