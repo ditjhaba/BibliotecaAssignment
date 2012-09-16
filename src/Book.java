@@ -25,11 +25,11 @@ public class Book {
         this.author = author;
     }
 
-    private boolean isBooked;
-    public boolean getIsBooked(){
-        return isBooked;
+    private boolean isReserved;
+    public boolean getReserved(){
+        return isReserved;
     }
-    public void setAuthor(boolean isBooked){
-        this.isBooked = isBooked;
+    public void setReserved(boolean isReserved){
+        this.isReserved = isReserved;
     }
 }

@@ -43,4 +43,17 @@ public class BibliotecaTest {
         Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()));
         assertTrue(biblioteca.viewBooks());
     }
+
+    @Test
+    public void testBookBooked(){
+        Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()));
+
+        Book book = new Book();
+        book.setISBN(1);
+        book.setAuthor("Ditjhaba");
+        book.setBookName("TWU TDD");
+        book.setReserved(false);
+
+        assertTrue(biblioteca.reserveBook(book));
+    }
 }

@@ -61,11 +61,13 @@ public class Biblioteca {
         book.setISBN(1);
         book.setAuthor("Ditjhaba");
         book.setBookName("TWU TDD");
+        book.setReserved(false);
 
         Book book1 = new Book();
         book1.setISBN(2);
         book1.setAuthor("Jules");
         book1.setBookName("Agile");
+        book1.setReserved(false);
 
         ArrayList<Book> bookList = new ArrayList<Book>();
         bookList.add(book);
@@ -76,8 +78,16 @@ public class Biblioteca {
         out.println("ISBN \t\t| Book \t\t| Author");
 
         for(int i = 0; i < bookList.size(); i++)
-            out.println(bookList.get(i).getISBN() + "\t\t\t" + bookList.get(i).getBookName() + "\t\t\t" + bookList.get(i).getAuthor());
+            if (bookList.get(i).getReserved() == false)
+                out.println(bookList.get(i).getISBN() + "\t\t\t" + bookList.get(i).getBookName() + "\t\t\t" + bookList.get(i).getAuthor());
 
         return true;
     }
+
+    public boolean reserveBook(Book book){
+        book.setReserved(true);
+        return true;
+    }
+
+
 }
