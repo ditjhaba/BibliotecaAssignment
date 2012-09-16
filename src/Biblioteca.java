@@ -1,5 +1,7 @@
 import java.awt.*;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Biblioteca {
 
@@ -53,6 +55,27 @@ public class Biblioteca {
     }
 
     public boolean viewBooks(){
+        Book book = new Book();
+        book.setISBN(1);
+        book.setAuthor("Ditjhaba");
+        book.setBookName("TWU TDD");
+
+        Book book1 = new Book();
+        book1.setISBN(2);
+        book1.setAuthor("Jules");
+        book1.setBookName("Agile");
+
+        ArrayList<Book> bookList = new ArrayList<Book>();
+        bookList.add(book);
+        bookList.add(book1);
+
+        Iterator itr = bookList.iterator();
+
+        out.println("ISBN \t\t| Book \t\t| Author");
+
+        while (itr.hasNext())
+            out.println(itr.next().getClass());
+
         return true;
     }
 }
