@@ -45,7 +45,7 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void testBookBooked(){
+    public void testReserveBook(){
         Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()));
 
         Book book = new Book();
@@ -55,5 +55,10 @@ public class BibliotecaTest {
         book.setReserved(false);
 
         assertTrue(biblioteca.reserveBook(book));
+    }
+
+    @Test
+    public void testBookReserved(){
+
     }
 }
