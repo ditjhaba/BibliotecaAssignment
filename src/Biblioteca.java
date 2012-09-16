@@ -52,6 +52,10 @@ public class Biblioteca {
         out.println("Sorry we don't have that book yet.");
     }
 
+    private void printTalkToLibrarianMessage(){
+        out.println("Please talk to Librarian. Thank you.");
+    }
+
     public int menuOptions(){
         menu = new Menu();
 
@@ -111,5 +115,10 @@ public class Biblioteca {
             printReservedBookMessage();
             return false;
         }
+    }
+
+    public boolean checkDetails(){
+        printTalkToLibrarianMessage();
+        return false;
     }
 }

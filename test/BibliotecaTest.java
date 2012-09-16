@@ -35,6 +35,13 @@ public class BibliotecaTest {
     }
 
     @Test
+    public void testPrintTalkToLibrarianMessage(){
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        new Biblioteca(new PrintStream(os)).printThankYouMessage();
+        assertEquals("Please talk to Librarian. Thank you." + System.getProperty("line.separator"), os.toString());
+    }
+
+    @Test
     public void testListMenuOptions(){
         Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()));
         assertTrue(biblioteca.menuOptions() > 0);
@@ -77,4 +84,11 @@ public class BibliotecaTest {
 
         assertFalse(biblioteca.reserveBook(book));
     }
+
+    @Test
+    public void testCheckDetails(){
+        Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()));
+        assertTrue(biblioteca.checkDetails());
+    }
+
 }
