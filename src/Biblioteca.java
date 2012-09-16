@@ -4,6 +4,10 @@ import java.io.PrintStream;
 public class Biblioteca {
 
     private PrintStream out;
+    private Menu menu;
+    private MenuItem fileMenuItem;
+    private MenuItem editMenuItem;
+    private MenuItem viewMenuItem;
 
     public Biblioteca(PrintStream out){
         this.out = out;
@@ -22,12 +26,19 @@ public class Biblioteca {
     }
 
     public int menuOptions(){
-        Menu menu = new Menu();
-        menu.add(new MenuItem("File"));
+        menu = new Menu();
+
+        fileMenuItem = new MenuItem("File");
+        menu.add(fileMenuItem);
         menu.addSeparator();
-        menu.add(new MenuItem("Edit"));
+
+        editMenuItem = new MenuItem("Edit");
+        menu.add(editMenuItem);
         menu.addSeparator();
-        menu.add(new MenuItem("View"));
+
+        viewMenuItem = new MenuItem("View");
+        menu.add(viewMenuItem);
+
         return menu.countItems();
     }
 
