@@ -30,4 +30,8 @@ public class Biblioteca {
         menu.add(new MenuItem("View"));
         return menu.countItems();
     }
+
+    public boolean selectMenuOption(){
+        return true;
+    }
 }
