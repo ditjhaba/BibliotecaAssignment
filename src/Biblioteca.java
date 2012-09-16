@@ -24,9 +24,9 @@ public class Biblioteca {
     public int menuOptions(){
         Menu menu = new Menu();
         menu.add(new MenuItem("File"));
-
+        menu.addSeparator();
         menu.add(new MenuItem("Edit"));
-
+        menu.addSeparator();
         menu.add(new MenuItem("View"));
         return menu.countItems();
     }
