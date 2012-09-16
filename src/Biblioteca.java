@@ -20,13 +20,14 @@ public class Biblioteca {
     private void run() {
         printMessage();
         menuOptions();
+        printThankYouMessage();
     }
 
     public void printMessage() {
           out.println("Welcome");
     }
 
-    public void ThankYouMessage(){
+    public void printThankYouMessage(){
         out.println("Thank You! Enjoy the book.");
     }
 
