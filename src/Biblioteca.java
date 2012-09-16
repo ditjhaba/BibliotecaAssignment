@@ -19,10 +19,15 @@ public class Biblioteca {
 
     private void run() {
         printMessage();
+        menuOptions();
     }
 
     public void printMessage() {
           out.println("Welcome");
+    }
+
+    public void ThankYouMessage(){
+        out.println("Thank You! Enjoy the book.");
     }
 
     public int menuOptions(){
@@ -43,6 +48,10 @@ public class Biblioteca {
     }
 
     public boolean selectMenuOption(){
+        return true;
+    }
+
+    public boolean viewBooks(){
         return true;
     }
 }
