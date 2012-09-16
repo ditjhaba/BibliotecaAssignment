@@ -74,9 +74,9 @@ public class Biblioteca {
 
         out.println("ISBN \t\t| Book \t\t| Author");
 
-        while (itr.hasNext())
-            out.println(itr.next());
-
+        for(int i = 0; i < bookList.size(); i++) {
+            out.println();
+        }
         return true;
     }
 }
