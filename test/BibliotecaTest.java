@@ -107,6 +107,9 @@ public class BibliotecaTest {
         assertTrue(biblioteca.checkDetails());
     }
 
+    @Test
+    public void testUserInput(){
 
+    }
 
 }

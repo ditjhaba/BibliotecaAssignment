@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -7,10 +8,7 @@ import java.util.ListIterator;
 public class Biblioteca {
 
     private PrintStream out;
-    private Menu menu;
-    private MenuItem fileMenuItem;
-    private MenuItem editMenuItem;
-    private MenuItem viewMenuItem;
+    private InputStream in;
 
     public Biblioteca(PrintStream out){
         this.out = out;
