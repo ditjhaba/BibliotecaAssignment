@@ -59,18 +59,30 @@ public class Biblioteca {
     public int menuOptions(){
         menu = new Menu();
 
-        fileMenuItem = new MenuItem("File");
+        fileMenuItem = new MenuItem("View Books");
         menu.add(fileMenuItem);
         menu.addSeparator();
 
-        editMenuItem = new MenuItem("Edit");
+        editMenuItem = new MenuItem("Reserve Book");
         menu.add(editMenuItem);
         menu.addSeparator();
 
-        viewMenuItem = new MenuItem("View");
+        viewMenuItem = new MenuItem("Check User Info");
         menu.add(viewMenuItem);
 
         return menu.countItems();
+    }
+
+    public void viewBooksMenuSelection(){
+        out.println("1. View Books");
+    }
+
+    public void reserveBookMenuSelection(){
+        out.println("2. Reserve Book");
+    }
+
+    public void CheckDetailsMenuSelection(){
+        out.println("3. Check User Info");
     }
 
     public boolean selectMenuOption(){

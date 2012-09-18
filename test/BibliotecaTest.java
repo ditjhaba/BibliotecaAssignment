@@ -14,53 +14,75 @@ import static org.junit.Assert.assertTrue;
 public class BibliotecaTest {
 
     @Test
-    public void testPrintMessage(){
+    public void testPrintMessage() throws Exception{
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         new Biblioteca(new PrintStream(os)).printMessage();
         assertEquals("Welcome" + System.getProperty("line.separator"), os.toString());
     }
 
     @Test
-    public void testPrintThankYouMessage(){
+    public void testPrintThankYouMessage() throws Exception{
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         new Biblioteca(new PrintStream(os)).printThankYouMessage();
         assertEquals("Thank You! Enjoy the book." + System.getProperty("line.separator"), os.toString());
     }
 
     @Test
-    public void testPrintReservedBookMessage(){
+    public void testPrintReservedBookMessage() throws Exception{
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         new Biblioteca(new PrintStream(os)).printThankYouMessage();
         assertEquals("Sorry we don't have that book yet." + System.getProperty("line.separator"), os.toString());
     }
 
     @Test
-    public void testPrintTalkToLibrarianMessage(){
+    public void testPrintTalkToLibrarianMessage() throws Exception{
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         new Biblioteca(new PrintStream(os)).printThankYouMessage();
         assertEquals("Please talk to Librarian. Thank you." + System.getProperty("line.separator"), os.toString());
     }
 
     @Test
-    public void testListMenuOptions(){
+    public void testListMenuOptions() throws Exception{
         Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()));
         assertTrue(biblioteca.menuOptions() > 0);
     }
 
     @Test
-    public void testSelectMenuOption(){
-        Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()));
-        assertTrue(biblioteca.selectMenuOption() == true);
+    public void testSelectMenuOption() throws Exception{
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        new Biblioteca(new PrintStream(os)).printThankYouMessage();
+        assertEquals("View Books", os.toString());
     }
 
     @Test
-    public void testViewBooks(){
+    public void testViewBooksMenuSelection() throws Exception{
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        new Biblioteca(new PrintStream(os)).printThankYouMessage();
+        assertEquals("1. View Books", os.toString());
+    }
+
+    @Test
+    public void testReserveBookMenuSelection() throws Exception{
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        new Biblioteca(new PrintStream(os)).printThankYouMessage();
+        assertEquals("2. Reserve Book", os.toString());
+    }
+
+    @Test
+    public void testCheckDetailsMenuSelection() throws Exception{
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        new Biblioteca(new PrintStream(os)).printThankYouMessage();
+        assertEquals("3. Check User Info", os.toString());
+    }
+
+    @Test
+    public void testViewBooks() throws Exception{
         Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()));
         assertTrue(biblioteca.viewBooks());
     }
 
     @Test
-    public void testReserveBook(){
+    public void testReserveBook() throws Exception{
         Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()));
 
         Book book = new Book();
@@ -73,7 +95,7 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void testBookReserved(){
+    public void testBookReserved() throws Exception{
         Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()));
 
         Book book = new Book();
@@ -86,7 +108,7 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void testCheckDetails(){
+    public void testCheckDetails() throws Exception{
         Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()));
         assertTrue(biblioteca.checkDetails());
     }
