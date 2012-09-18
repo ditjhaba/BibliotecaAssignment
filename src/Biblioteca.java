@@ -22,8 +22,17 @@ public class Biblioteca {
 
     private void run() {
         printMessage();
-        menuOptions();
-        viewBooks();
+
+        out.println();
+        out.println("Menu:");
+        viewBooksMenuSelection();
+        reserveBookMenuSelection();
+        checkDetailsMenuSelection();
+        out.println();
+
+        out.println("Enter the corresponding number from the above menu:");
+
+        /*viewBooks();
 
         Book book = new Book();
         book.setISBN(1);
@@ -37,7 +46,7 @@ public class Biblioteca {
         book1.setAuthor("Jules");
         book1.setBookName("Agile");
         book1.setReserved(false);
-        reserveBook(book1);
+        reserveBook(book1);*/
     }
 
     public void printMessage() {
@@ -56,23 +65,6 @@ public class Biblioteca {
         out.println("Please talk to Librarian. Thank you.");
     }
 
-    public int menuOptions(){
-        menu = new Menu();
-
-        fileMenuItem = new MenuItem("View Books");
-        menu.add(fileMenuItem);
-        menu.addSeparator();
-
-        editMenuItem = new MenuItem("Reserve Book");
-        menu.add(editMenuItem);
-        menu.addSeparator();
-
-        viewMenuItem = new MenuItem("Check User Info");
-        menu.add(viewMenuItem);
-
-        return menu.countItems();
-    }
-
     public void viewBooksMenuSelection(){
         out.println("1. View Books");
     }
@@ -81,7 +73,7 @@ public class Biblioteca {
         out.println("2. Reserve Book");
     }
 
-    public void CheckDetailsMenuSelection(){
+    public void checkDetailsMenuSelection(){
         out.println("3. Check User Info");
     }
 

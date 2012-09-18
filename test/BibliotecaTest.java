@@ -42,12 +42,6 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void testListMenuOptions() throws Exception{
-        Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()));
-        assertTrue(biblioteca.menuOptions() > 0);
-    }
-
-    @Test
     public void testSelectMenuOption() throws Exception{
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         new Biblioteca(new PrintStream(os)).printThankYouMessage();
@@ -112,5 +106,7 @@ public class BibliotecaTest {
         Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()));
         assertTrue(biblioteca.checkDetails());
     }
+
+
 
 }
