@@ -30,7 +30,9 @@ public class Biblioteca {
 
         out.println("Enter the corresponding number from the above menu:");
 
-         int input = readUserInput();
+        int input = readUserInput();
+
+        selectMenuOption(input);
 
         /*viewBooks();
 
@@ -91,8 +93,23 @@ public class Biblioteca {
         out.println("3. Check User Info");
     }
 
-    public boolean selectMenuOption(){
-        return true;
+    public void selectMenuOption(int option){
+        if (option == 1){
+            viewBooks();
+        }
+        else
+            if (option == 2){
+                Book book = new Book();
+                book.setISBN(1);
+                book.setAuthor("Ditjhaba");
+                book.setBookName("TWU TDD");
+                book.setReserved(true);
+                reserveBook(book);
+            }
+            else
+                if (option == 3){
+                    checkDetails();
+                }
     }
 
     public boolean viewBooks(){
