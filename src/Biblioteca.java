@@ -1,6 +1,5 @@
 import java.awt.*;
-import java.io.InputStream;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ListIterator;
@@ -10,12 +9,13 @@ public class Biblioteca {
     private PrintStream out;
     private InputStream in;
 
-    public Biblioteca(PrintStream out){
+    public Biblioteca(PrintStream out, InputStream in){
         this.out = out;
+        this.in = in;
     }
 
     public static void main(String[] args){
-        new Biblioteca(System.out).run();
+        new Biblioteca(System.out, System.in).run();
     }
 
     private void run() {
@@ -29,6 +29,8 @@ public class Biblioteca {
         out.println();
 
         out.println("Enter the corresponding number from the above menu:");
+
+         int input = readUserInput();
 
         /*viewBooks();
 
@@ -45,6 +47,20 @@ public class Biblioteca {
         book1.setBookName("Agile");
         book1.setReserved(false);
         reserveBook(book1);*/
+    }
+
+    public int readUserInput() {
+        try{
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+            String read = bufferedReader.readLine();
+            int selection = Integer.parseInt(read);
+
+            return selection;
+        }
+        catch (IOException ioe){
+            out.println("Error: " + ioe.getMessage());
+            return 0;
+        }
     }
 
     public void printMessage() {
