@@ -103,7 +103,7 @@ public class Biblioteca {
                 book.setISBN(1);
                 book.setAuthor("Ditjhaba");
                 book.setBookName("TWU TDD");
-                book.setReserved(true);
+                book.setReserved(false);
                 reserveBook(book);
             }
             else
