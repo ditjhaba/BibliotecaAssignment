@@ -2,6 +2,10 @@
 public class Book {
 
     private int ISBN;
+    private String bookName;
+    private String author;
+    private boolean isReserved;
+
     public int getISBN(){
         return ISBN;
     }
@@ -9,7 +13,6 @@ public class Book {
         this.ISBN = ISBN;
     }
 
-    private String bookName;
     public String getBookName(){
         return bookName;
     }
@@ -17,7 +20,6 @@ public class Book {
         this.bookName = bookName;
     }
 
-    private String author;
     public String getAuthor(){
         return author;
     }
@@ -25,7 +27,6 @@ public class Book {
         this.author = author;
     }
 
-    private boolean isReserved;
     public boolean getReserved(){
         return isReserved;
     }

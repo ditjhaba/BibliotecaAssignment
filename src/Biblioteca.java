@@ -21,34 +21,23 @@ public class Biblioteca {
     private void run() {
         printMessage();
 
-        out.println();
-        out.println("Menu:");
-        viewBooksMenuSelection();
-        reserveBookMenuSelection();
-        checkDetailsMenuSelection();
-        out.println();
+        int input;
 
-        out.println("Enter the corresponding number from the above menu:");
+        do
+        {
+            out.println();
+            out.println("Menu:");
+            viewBooksMenuSelection();
+            reserveBookMenuSelection();
+            checkDetailsMenuSelection();
+            out.println();
 
-        int input = readUserInput();
+            out.println("Enter the corresponding number from the above menu:");
 
-        selectMenuOption(input);
+            input = readUserInput();
 
-        /*viewBooks();
-
-        Book book = new Book();
-        book.setISBN(1);
-        book.setAuthor("Ditjhaba");
-        book.setBookName("TWU TDD");
-        book.setReserved(true);
-        reserveBook(book);
-
-        Book book1 = new Book();
-        book1.setISBN(2);
-        book1.setAuthor("Jules");
-        book1.setBookName("Agile");
-        book1.setReserved(false);
-        reserveBook(book1);*/
+            selectMenuOption(input);
+        }while (input != 4);
     }
 
     public int readUserInput() {
@@ -73,11 +62,11 @@ public class Biblioteca {
         out.println("Thank You! Enjoy the book.");
     }
 
-    private void printReservedBookMessage() {
+    public void printReservedBookMessage() {
         out.println("Sorry we don't have that book yet.");
     }
 
-    private void printTalkToLibrarianMessage(){
+    public void printTalkToLibrarianMessage(){
         out.println("Please talk to Librarian. Thank you.");
     }
 
@@ -94,7 +83,28 @@ public class Biblioteca {
     }
 
     public void selectMenuOption(int option){
-        if (option == 1){
+
+        switch (option)
+        {
+            case 1 : {
+                viewBooks();
+            }
+            case 2 : {
+                Book book = new Book();
+                book.setISBN(1);
+                book.setAuthor("Ditjhaba");
+                book.setBookName("TWU TDD");
+                book.setReserved(false);
+
+                reserveBook(book);
+            }
+            case 3 : {
+                checkDetails();
+            }
+
+        }
+
+        /*if (option == 1){
             viewBooks();
         }
         else
@@ -104,12 +114,13 @@ public class Biblioteca {
                 book.setAuthor("Ditjhaba");
                 book.setBookName("TWU TDD");
                 book.setReserved(false);
+
                 reserveBook(book);
             }
             else
                 if (option == 3){
                     checkDetails();
-                }
+                }*/
     }
 
     public boolean viewBooks(){
@@ -157,5 +168,4 @@ public class Biblioteca {
         return false;
     }
 
-    //last commit
 }

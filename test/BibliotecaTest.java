@@ -26,44 +26,38 @@ public class BibliotecaTest {
 
     @Test
     public void testPrintReservedBookMessage() throws Exception{
+
         ByteArrayOutputStream os = new ByteArrayOutputStream();
-        new Biblioteca(new PrintStream(os), new ByteArrayInputStream(new byte[]{})).printThankYouMessage();
+        new Biblioteca(new PrintStream(os), new ByteArrayInputStream(new byte[]{})).printReservedBookMessage();
         assertEquals("Sorry we don't have that book yet." + System.getProperty("line.separator"), os.toString());
     }
 
     @Test
     public void testPrintTalkToLibrarianMessage() throws Exception{
         ByteArrayOutputStream os = new ByteArrayOutputStream();
-        new Biblioteca(new PrintStream(os), new ByteArrayInputStream(new byte[]{})).printThankYouMessage();
+        new Biblioteca(new PrintStream(os), new ByteArrayInputStream(new byte[]{})).printTalkToLibrarianMessage();
         assertEquals("Please talk to Librarian. Thank you." + System.getProperty("line.separator"), os.toString());
-    }
-
-    @Test
-    public void testSelectMenuOption() throws Exception{
-        ByteArrayOutputStream os = new ByteArrayOutputStream();
-        new Biblioteca(new PrintStream(os), new ByteArrayInputStream(new byte[]{})).printThankYouMessage();
-        assertEquals("View Books", os.toString());
     }
 
     @Test
     public void testViewBooksMenuSelection() throws Exception{
         ByteArrayOutputStream os = new ByteArrayOutputStream();
-        new Biblioteca(new PrintStream(os), new ByteArrayInputStream(new byte[]{})).printThankYouMessage();
-        assertEquals("1. View Books", os.toString());
+        new Biblioteca(new PrintStream(os), new ByteArrayInputStream(new byte[]{})).viewBooksMenuSelection();
+        assertEquals("1. View Books" + System.getProperty("line.separator"), os.toString());
     }
 
     @Test
     public void testReserveBookMenuSelection() throws Exception{
         ByteArrayOutputStream os = new ByteArrayOutputStream();
-        new Biblioteca(new PrintStream(os), new ByteArrayInputStream(new byte[]{})).printThankYouMessage();
-        assertEquals("2. Reserve Book", os.toString());
+        new Biblioteca(new PrintStream(os), new ByteArrayInputStream(new byte[]{})).reserveBookMenuSelection();
+        assertEquals("2. Reserve Book" + System.getProperty("line.separator"), os.toString());
     }
 
     @Test
     public void testCheckDetailsMenuSelection() throws Exception{
         ByteArrayOutputStream os = new ByteArrayOutputStream();
-        new Biblioteca(new PrintStream(os), new ByteArrayInputStream(new byte[]{})).printThankYouMessage();
-        assertEquals("3. Check User Info", os.toString());
+        new Biblioteca(new PrintStream(os), new ByteArrayInputStream(new byte[]{})).checkDetailsMenuSelection();
+        assertEquals("3. Check User Info" + System.getProperty("line.separator"), os.toString());
     }
 
     @Test
