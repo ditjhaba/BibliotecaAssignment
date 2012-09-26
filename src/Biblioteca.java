@@ -9,12 +9,12 @@ public class Biblioteca {
     private PrintStream out;
     private InputStream in;
 
-    public Biblioteca(PrintStream out, InputStream in){
+    public Biblioteca(PrintStream out, InputStream in) {
         this.out = out;
         this.in = in;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         new Biblioteca(System.out, System.in).run();
     }
 
@@ -23,13 +23,14 @@ public class Biblioteca {
 
         int input;
 
-        do
-        {
+        do {
             out.println();
             out.println("Menu:");
+
             viewBooksMenuSelection();
             reserveBookMenuSelection();
             checkDetailsMenuSelection();
+
             out.println();
 
             out.println("Enter the corresponding number from the above menu:");
@@ -37,28 +38,33 @@ public class Biblioteca {
             input = readUserInput();
 
             selectMenuOption(input);
-        }while (input != 4);
+
+        } while (input != 4);
     }
 
     public int readUserInput() {
-        try{
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-            String read = bufferedReader.readLine();
-            int selection = Integer.parseInt(read);
+        try {
+
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in));
+            int selection = 0;
+
+            if (bufferedReader.ready()) {
+                String read = bufferedReader.readLine();
+                selection = Integer.parseInt(read);
+            }
 
             return selection;
-        }
-        catch (IOException ioe){
+        } catch (IOException ioe) {
             out.println("Error: " + ioe.getMessage());
             return 0;
         }
     }
 
     public void printMessage() {
-          out.println("Welcome");
+        out.println("Welcome");
     }
 
-    public void printThankYouMessage(){
+    public void printThankYouMessage() {
         out.println("Thank You! Enjoy the book.");
     }
 
@@ -66,30 +72,29 @@ public class Biblioteca {
         out.println("Sorry we don't have that book yet.");
     }
 
-    public void printTalkToLibrarianMessage(){
+    public void printTalkToLibrarianMessage() {
         out.println("Please talk to Librarian. Thank you.");
     }
 
-    public void viewBooksMenuSelection(){
+    public void viewBooksMenuSelection() {
         out.println("1. View Books");
     }
 
-    public void reserveBookMenuSelection(){
+    public void reserveBookMenuSelection() {
         out.println("2. Reserve Book");
     }
 
-    public void checkDetailsMenuSelection(){
+    public void checkDetailsMenuSelection() {
         out.println("3. Check User Info");
     }
 
-    public void selectMenuOption(int option){
+    public void selectMenuOption(int option) {
 
-        switch (option)
-        {
-            case 1 : {
+        switch (option) {
+            case 1: {
                 viewBooks();
             }
-            case 2 : {
+            case 2: {
                 Book book = new Book();
                 book.setISBN(1);
                 book.setAuthor("Ditjhaba");
@@ -98,7 +103,7 @@ public class Biblioteca {
 
                 reserveBook(book);
             }
-            case 3 : {
+            case 3: {
                 checkDetails();
             }
 
@@ -123,7 +128,7 @@ public class Biblioteca {
                 }*/
     }
 
-    public boolean viewBooks(){
+    public boolean viewBooks() {
         Book book = new Book();
         book.setISBN(1);
         book.setAuthor("Ditjhaba");
@@ -144,26 +149,25 @@ public class Biblioteca {
 
         out.println("ISBN \t\t| Book \t\t| Author");
 
-        for(int i = 0; i < bookList.size(); i++)
+        for (int i = 0; i < bookList.size(); i++)
             if (bookList.get(i).getReserved() == false)
                 out.println(bookList.get(i).getISBN() + "\t\t\t" + bookList.get(i).getBookName() + "\t\t\t" + bookList.get(i).getAuthor());
 
         return true;
     }
 
-    public boolean reserveBook(Book book){
-        if(book.getReserved() == false){
+    public boolean reserveBook(Book book) {
+        if (book.getReserved() == false) {
             book.setReserved(true);
             printThankYouMessage();
             return true;
-        }
-        else{
+        } else {
             printReservedBookMessage();
             return false;
         }
     }
 
-    public boolean checkDetails(){
+    public boolean checkDetails() {
         printTalkToLibrarianMessage();
         return false;
     }

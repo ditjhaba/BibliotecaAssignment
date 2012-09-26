@@ -100,12 +100,17 @@ public class BibliotecaTest {
 
     @Test
     public void testReadUserInput() throws Exception{
-        Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()), new ByteArrayInputStream(new byte[]{}));
 
-        //ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(new byte[]{});
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream("01".getBytes());
+        Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()), byteArrayInputStream);
 
-        assertEquals(1, biblioteca.readUserInput());
+        assertEquals(byteArrayInputStream.read(new byte[1]), biblioteca.readUserInput());
     }
 
+    @Test
+    public void testSelectBook(){
+        Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()), new ByteArrayInputStream(new byte[]{}));
 
+
+    }
 }
