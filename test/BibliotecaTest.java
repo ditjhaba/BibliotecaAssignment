@@ -4,9 +4,7 @@ import org.junit.Assert;
 import java.awt.*;
 import java.io.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class BibliotecaTest {
 
@@ -122,6 +120,12 @@ public class BibliotecaTest {
         Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()), new ByteArrayInputStream(new byte[]{}));
 
         assertTrue(biblioteca.selectBook(new Book()));
+    }
+
+    @Test
+    public void testAddBooks() throws Exception{
+        Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()), new ByteArrayInputStream(new byte[]{}));
+
     }
 
 }

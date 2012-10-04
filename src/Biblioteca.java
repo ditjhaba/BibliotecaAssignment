@@ -7,6 +7,7 @@ public class Biblioteca {
 
     private PrintStream out;
     private InputStream in;
+    private ArrayList<Book> bookList;
 
     public Biblioteca(PrintStream out, InputStream in) {
         this.out = out;
@@ -29,6 +30,8 @@ public class Biblioteca {
             viewBooksMenuSelection();
             reserveBookMenuSelection();
             checkDetailsMenuSelection();
+
+            addBooks();
 
             out.println();
 
@@ -63,6 +66,7 @@ public class Biblioteca {
                 break;
             }
             case 2: {
+
                 Book book = new Book();
                 book.setISBN(1);
                 book.setAuthor("Ditjhaba");
@@ -87,30 +91,39 @@ public class Biblioteca {
         }
     }
 
-    public boolean viewBooks() {
+    public void addBooks(){
         Book book = new Book();
         book.setISBN(1);
         book.setAuthor("Ditjhaba");
         book.setBookName("TWU TDD");
-        book.setReserved(false);
+        book.setReserved(true);
 
         Book book1 = new Book();
         book1.setISBN(2);
-        book1.setAuthor("Jules");
+        book1.setAuthor("Jules Perry");
         book1.setBookName("Agile");
         book1.setReserved(false);
 
-        ArrayList<Book> bookList = new ArrayList<Book>();
+        Book book2 = new Book();
+        book2.setISBN(3);
+        book2.setAuthor("John Terry");
+        book2.setBookName("Mingle");
+        book2.setReserved(false);
+
+        bookList = new ArrayList<Book>();
         bookList.add(book);
         bookList.add(book1);
+        bookList.add(book2);
+    }
+
+    public boolean viewBooks() {
 
         ListIterator itr = bookList.listIterator();
 
-        out.println("ISBN \t\t| Book \t\t| Author");
+        out.println("ISBN \t\t\t\t| Book \t\t\t\t\t\t| Author\t\t\t\t\t\t| Available");
 
         for (int i = 0; i < bookList.size(); i++)
-            if (bookList.get(i).getReserved() == false)
-                out.println(bookList.get(i).getISBN() + "\t\t\t" + bookList.get(i).getBookName() + "\t\t\t" + bookList.get(i).getAuthor());
+            out.println(bookList.get(i).getISBN() + "\t\t\t\t\t" + bookList.get(i).getBookName() + "\t\t\t\t\t\t" + bookList.get(i).getAuthor() + "\t\t\t\t\t\t" + bookList.get(i).getReserved());
 
         return true;
     }
@@ -119,6 +132,18 @@ public class Biblioteca {
         printSelectBookMessage();
 
         int isbn = readUserInput();
+
+        out.print(bookList);
+
+        for (int i = 0; i < bookList.size(); i++){
+
+            if(bookList.get(i).getISBN() == book.getISBN()){
+
+                out.print("ISBN: " + book.getISBN());
+                selectBook(book);
+            }
+
+        }
 
         return true;
     }
