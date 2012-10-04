@@ -40,6 +40,13 @@ public class BibliotecaTest {
     }
 
     @Test
+    public void testSelectBookMessage() throws Exception{
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        new Biblioteca(new PrintStream(os), new ByteArrayInputStream(new byte[]{})).printSelectBookMessage();
+        assertEquals("Please enter ISBN Number: " + System.getProperty("line.separator"), os.toString());
+    }
+
+    @Test
     public void testViewBooksMenuSelection() throws Exception{
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         new Biblioteca(new PrintStream(os), new ByteArrayInputStream(new byte[]{})).viewBooksMenuSelection();
@@ -116,4 +123,5 @@ public class BibliotecaTest {
 
         assertTrue(biblioteca.selectBook(new Book()));
     }
+
 }

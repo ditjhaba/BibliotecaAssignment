@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -117,14 +116,11 @@ public class Biblioteca {
     }
 
     public boolean reserveBook(Book book) {
-        if (book.getReserved() == false) {
-            book.setReserved(true);
-            printThankYouMessage();
-            return true;
-        } else {
-            printReservedBookMessage();
-            return false;
-        }
+        printSelectBookMessage();
+
+        int isbn = readUserInput();
+
+        return true;
     }
 
     public boolean selectBook(Book book){
@@ -160,6 +156,10 @@ public class Biblioteca {
 
     public void printTalkToLibrarianMessage() {
         out.println("Please talk to Librarian. Thank you.");
+    }
+
+    public void printSelectBookMessage() {
+        out.println("Please enter ISBN Number: ");
     }
 
     public void viewBooksMenuSelection() {
