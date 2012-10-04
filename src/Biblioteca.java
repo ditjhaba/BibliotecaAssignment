@@ -44,14 +44,10 @@ public class Biblioteca {
 
     public int readUserInput() {
         try {
-
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in));
-            int selection = 0;
 
-            if (bufferedReader.ready()) {
-                String read = bufferedReader.readLine();
-                selection = Integer.parseInt(read);
-            }
+            String read = bufferedReader.readLine();
+            int selection = Integer.parseInt(read);
 
             return selection;
         } catch (IOException ioe) {
@@ -60,39 +56,12 @@ public class Biblioteca {
         }
     }
 
-    public void printMessage() {
-        out.println("Welcome");
-    }
-
-    public void printThankYouMessage() {
-        out.println("Thank You! Enjoy the book.");
-    }
-
-    public void printReservedBookMessage() {
-        out.println("Sorry we don't have that book yet.");
-    }
-
-    public void printTalkToLibrarianMessage() {
-        out.println("Please talk to Librarian. Thank you.");
-    }
-
-    public void viewBooksMenuSelection() {
-        out.println("1. View Books");
-    }
-
-    public void reserveBookMenuSelection() {
-        out.println("2. Reserve Book");
-    }
-
-    public void checkDetailsMenuSelection() {
-        out.println("3. Check User Info");
-    }
-
     public void selectMenuOption(int option) {
 
         switch (option) {
             case 1: {
                 viewBooks();
+                break;
             }
             case 2: {
                 Book book = new Book();
@@ -102,30 +71,21 @@ public class Biblioteca {
                 book.setReserved(false);
 
                 reserveBook(book);
+                break;
             }
             case 3: {
                 checkDetails();
+                break;
+            }
+            case 4: {
+                System.exit(0);
+                break;
+            }
+            default:{
+                out.println("Enter correct option!!!!");
             }
 
         }
-
-        /*if (option == 1){
-            viewBooks();
-        }
-        else
-            if (option == 2){
-                Book book = new Book();
-                book.setISBN(1);
-                book.setAuthor("Ditjhaba");
-                book.setBookName("TWU TDD");
-                book.setReserved(false);
-
-                reserveBook(book);
-            }
-            else
-                if (option == 3){
-                    checkDetails();
-                }*/
     }
 
     public boolean viewBooks() {
@@ -172,4 +132,45 @@ public class Biblioteca {
         return false;
     }
 
+    public void printMessage() {
+        out.println("Welcome");
+    }
+
+    public void printThankYouMessage() {
+        out.println("Thank You! Enjoy the book.");
+    }
+
+    public void printReservedBookMessage() {
+        out.println("Sorry we don't have that book yet.");
+    }
+
+    public void printTalkToLibrarianMessage() {
+        out.println("Please talk to Librarian. Thank you.");
+    }
+
+    public void viewBooksMenuSelection() {
+        out.println("1. View Books");
+    }
+
+    public void reserveBookMenuSelection() {
+        out.println("2. Reserve Book");
+    }
+
+    public void checkDetailsMenuSelection() {
+        out.println("3. Check User Info");
+    }
+
+    public boolean selectBook(Book book){
+        if(book.getReserved() == true){
+            printReservedBookMessage();
+            return false;
+        }
+        else
+            if(book.getReserved() == false){
+                printThankYouMessage();
+                return true;
+            }
+
+        return false;
+    }
 }
