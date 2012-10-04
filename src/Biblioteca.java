@@ -133,13 +133,9 @@ public class Biblioteca {
 
         int isbn = readUserInput();
 
-        out.print(bookList);
-
         for (int i = 0; i < bookList.size(); i++){
 
             if(bookList.get(i).getISBN() == book.getISBN()){
-
-                out.print("ISBN: " + book.getISBN());
                 selectBook(book);
             }
 
@@ -154,10 +150,10 @@ public class Biblioteca {
             return false;
         }
         else
-        if(book.getReserved() == false){
-            printThankYouMessage();
-            return true;
-        }
+            if(book.getReserved() == false){
+                printThankYouMessage();
+                return true;
+            }
 
         return false;
     }
