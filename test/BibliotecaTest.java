@@ -101,16 +101,19 @@ public class BibliotecaTest {
     @Test
     public void testReadUserInput() throws Exception{
 
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream("01".getBytes());
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream("1".getBytes());
         Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()), byteArrayInputStream);
 
-        assertEquals(byteArrayInputStream.read(new byte[1]), biblioteca.readUserInput());
+        assertEquals(1, biblioteca.readUserInput());
+        assertEquals(2, biblioteca.readUserInput());
+        assertEquals(3, biblioteca.readUserInput());
+        assertEquals(4, biblioteca.readUserInput());
     }
 
     @Test
-    public void testSelectBook(){
+    public void testSelectBook() throws Exception{
         Biblioteca biblioteca = new Biblioteca(new PrintStream(new ByteArrayOutputStream()), new ByteArrayInputStream(new byte[]{}));
 
-
+        assertTrue(biblioteca.selectBook(new Book()));
     }
 }

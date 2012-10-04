@@ -127,6 +127,20 @@ public class Biblioteca {
         }
     }
 
+    public boolean selectBook(Book book){
+        if(book.getReserved() == true){
+            printReservedBookMessage();
+            return false;
+        }
+        else
+        if(book.getReserved() == false){
+            printThankYouMessage();
+            return true;
+        }
+
+        return false;
+    }
+
     public boolean checkDetails() {
         printTalkToLibrarianMessage();
         return false;
@@ -160,17 +174,5 @@ public class Biblioteca {
         out.println("3. Check User Info");
     }
 
-    public boolean selectBook(Book book){
-        if(book.getReserved() == true){
-            printReservedBookMessage();
-            return false;
-        }
-        else
-            if(book.getReserved() == false){
-                printThankYouMessage();
-                return true;
-            }
 
-        return false;
-    }
 }
