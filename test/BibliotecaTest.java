@@ -81,7 +81,7 @@ public class BibliotecaTest {
         book.setBookName("TWU TDD");
         book.setReserved(false);
 
-        assertTrue(biblioteca.reserveBook(book));
+        assertTrue(biblioteca.reserveBook());
     }
 
     @Test
@@ -94,7 +94,7 @@ public class BibliotecaTest {
         book.setBookName("TWU TDD");
         book.setReserved(true);
 
-        assertFalse(biblioteca.reserveBook(book));
+        assertFalse(biblioteca.reserveBook());
     }
 
     @Test

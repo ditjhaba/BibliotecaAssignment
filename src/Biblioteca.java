@@ -66,14 +66,7 @@ public class Biblioteca {
                 break;
             }
             case 2: {
-
-                Book book = new Book();
-                book.setISBN(1);
-                book.setAuthor("Ditjhaba");
-                book.setBookName("TWU TDD");
-                book.setReserved(false);
-
-                reserveBook(book);
+                reserveBook();
                 break;
             }
             case 3: {
@@ -120,7 +113,7 @@ public class Biblioteca {
 
         ListIterator itr = bookList.listIterator();
 
-        out.println("ISBN \t\t\t\t| Book \t\t\t\t\t\t| Author\t\t\t\t\t\t| Available");
+        out.println("ISBN \t\t\t\t| Book \t\t\t\t\t\t| Author\t\t\t\t\t\t| Not Available");
 
         for (int i = 0; i < bookList.size(); i++)
             out.println(bookList.get(i).getISBN() + "\t\t\t\t\t" + bookList.get(i).getBookName() + "\t\t\t\t\t\t" + bookList.get(i).getAuthor() + "\t\t\t\t\t\t" + bookList.get(i).getReserved());
@@ -128,15 +121,17 @@ public class Biblioteca {
         return true;
     }
 
-    public boolean reserveBook(Book book) {
+    public boolean reserveBook() {
         printSelectBookMessage();
 
         int isbn = readUserInput();
 
         for (int i = 0; i < bookList.size(); i++){
 
-            if(bookList.get(i).getISBN() == book.getISBN()){
+            if(bookList.get(i).getISBN() == isbn){
+                Book book = bookList.get(i);
                 selectBook(book);
+                break;
             }
 
         }
@@ -147,15 +142,13 @@ public class Biblioteca {
     public boolean selectBook(Book book){
         if(book.getReserved() == true){
             printReservedBookMessage();
-            return false;
         }
         else
             if(book.getReserved() == false){
                 printThankYouMessage();
-                return true;
             }
 
-        return false;
+        return true;
     }
 
     public boolean checkDetails() {
